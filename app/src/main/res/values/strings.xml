@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">TabianDating</string>
     <string name="search_hint">Start typing a name...</string>
+    <string name="name_hint">Name</string>
+    <string name="email_hint">Name@YourEmail.com</string>
+    <string name="phone_hint">1(604) 855&#8211;1111</string>
 
     <!-- Navigation Drawer -->
     <string name="home">Home</string>

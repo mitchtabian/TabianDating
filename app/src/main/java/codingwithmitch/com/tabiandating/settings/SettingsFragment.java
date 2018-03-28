@@ -72,7 +72,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     //widgets
     private TextView mFragmentHeading;
     private RelativeLayout mBackArrow;
-    private EditText mName;
+    private EditText mName, mEmail, mPhoneNumber;
     private Spinner mGenderSpinner, mInterestedInSpinner, mStatusSpinner;
     private CircleImageView mProfileImage;
     private Button mSave;
@@ -96,6 +96,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         mStatusSpinner = view.findViewById(R.id.relationship_status_spinner);
         mProfileImage = view.findViewById(R.id.profile_image);
         mSave = view.findViewById(R.id.btn_save);
+        mEmail = view.findViewById(R.id.email);
+        mPhoneNumber = view.findViewById(R.id.phone_number);
 
         mProfileImage.setOnClickListener(this);
         mSave.setOnClickListener(this);
@@ -115,6 +117,12 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
         String name = preferences.getString(PreferenceKeys.NAME, "");
         mName.setText(name);
+
+        String email = preferences.getString(PreferenceKeys.EMAIL, "");
+        mEmail.setText(email);
+
+        String phoneNumber = preferences.getString(PreferenceKeys.PHONE_NUMBER, "");
+        mPhoneNumber.setText(phoneNumber);
 
         mSelectedGender = preferences.getString(PreferenceKeys.GENDER, getString(R.string.gender_none));
         String[] genderArray = getActivity().getResources().getStringArray(R.array.gender_array);
@@ -146,17 +154,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                     .load(mSelectedImageUrl)
                     .into(mProfileImage);
         }
-//
+
         mGenderSpinner.setOnItemSelectedListener(this);
         mInterestedInSpinner.setOnItemSelectedListener(this);
         mStatusSpinner.setOnItemSelectedListener(this);
-
-        Log.d(TAG, "getSavedPreferences: name: " + name);
-        Log.d(TAG, "getSavedPreferences: gender: " + mSelectedGender);
-        Log.d(TAG, "getSavedPreferences: interested in: " + mSelectedInterest);
-        Log.d(TAG, "getSavedPreferences: status: " + mSelectedStatus);
     }
-
 
     @Override
     public void onClick(View view) {
@@ -253,6 +255,14 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             Toast.makeText(getActivity(), "Enter your name", Toast.LENGTH_SHORT).show();
         }
 
+        String email = mEmail.getText().toString();
+        editor.putString(PreferenceKeys.EMAIL, email);
+        editor.apply();
+
+        String phoneNumber = mPhoneNumber.getText().toString();
+        editor.putString(PreferenceKeys.PHONE_NUMBER, phoneNumber);
+        editor.apply();
+
         editor.putString(PreferenceKeys.GENDER, mSelectedGender);
         editor.apply();
 
@@ -268,12 +278,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         }
 
         Toast.makeText(getActivity(), "saved", Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "savePreferences: name: " + name);
-        Log.d(TAG, "savePreferences: gender: " + mSelectedGender);
-        Log.d(TAG, "savePreferences: interested in: " + mSelectedInterest);
-        Log.d(TAG, "savePreferences: status: " + mSelectedStatus);
     }
-
 
 
     private void setBackgroundImage(View view){

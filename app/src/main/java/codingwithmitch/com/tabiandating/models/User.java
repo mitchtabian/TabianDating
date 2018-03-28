@@ -8,14 +8,18 @@ public class User implements Parcelable{
 
     private String profile_image;
     private String name;
+    private String email;
+    private String phone_number;
     private String gender;
     private String interested_in;
     private String status;
 
 
-    public User(String profile_image, String name, String gender, String interested_in, String status) {
+    public User(String profile_image, String name, String email, String phone_number, String gender, String interested_in, String status) {
         this.profile_image = profile_image;
         this.name = name;
+        this.email = email;
+        this.phone_number = phone_number;
         this.gender = gender;
         this.interested_in = interested_in;
         this.status = status;
@@ -29,6 +33,8 @@ public class User implements Parcelable{
     protected User(Parcel in) {
         profile_image = in.readString();
         name = in.readString();
+        email = in.readString();
+        phone_number = in.readString();
         gender = in.readString();
         interested_in = in.readString();
         status = in.readString();
@@ -45,6 +51,26 @@ public class User implements Parcelable{
             return new User[size];
         }
     };
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public static Creator<User> getCREATOR() {
+        return CREATOR;
+    }
 
     public String getProfile_image() {
         return profile_image;
@@ -96,6 +122,8 @@ public class User implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(profile_image);
         parcel.writeString(name);
+        parcel.writeString(email);
+        parcel.writeString(phone_number);
         parcel.writeString(gender);
         parcel.writeString(interested_in);
         parcel.writeString(status);
