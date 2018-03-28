@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
+import codingwithmitch.com.tabiandating.util.Resources;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -26,6 +29,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mLogin.setOnClickListener(this);
 
+        setBackgroundImage();
+    }
+
+    private void setBackgroundImage(){
+        ImageView backgroundView = findViewById(R.id.background);
+        Glide.with(this)
+                .load(Resources.BACKGROUND_HEARTS)
+                .into(backgroundView);
     }
 
 

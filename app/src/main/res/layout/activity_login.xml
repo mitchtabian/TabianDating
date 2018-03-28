@@ -14,8 +14,7 @@
             android:layout_height="match_parent"
             android:scaleType="matrix"
             android:alpha=".1"
-            android:id="@+id/background"
-            android:src="@drawable/heart_background"/>
+            android:id="@+id/background"/>
 
     </RelativeLayout>
 
