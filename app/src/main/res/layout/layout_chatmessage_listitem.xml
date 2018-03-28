@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/relLayout1"
+        android:layout_marginBottom="10dp"
+        android:layout_centerVertical="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/profile_image"
+            android:scaleType="centerCrop"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_android"/>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/grey_border"
+        android:layout_toRightOf="@id/relLayout1"
+        android:layout_toEndOf="@+id/relLayout1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignTop="@+id/relLayout1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/message"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"
+            android:textSize="13sp"
+            android:layout_marginRight="10dp"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">TabianDating</string>
+    <string name="search_hint">Start typing a name...</string>
+
+    <!-- Navigation Drawer -->
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="agreement">Agreement</string>
+
+    <!-- Fragment Tags -->
+    <string name="tag_fragment_home">Home</string>
+    <string name="tag_fragment_saved_connections">Saved Connections</string>
+    <string name="tag_fragment_messages">Messages</string>
+    <string name="tag_fragment_settings">Settings</string>
+    <string name="tag_fragment_gallery">Gallery</string>
+    <string name="tag_fragment_photo">Photo</string>
+    <string name="tag_fragment_view_profile">View Profile</string>
+    <string name="tag_fragment_chat">Chat</string>
+    <string name="tag_fragment_agreement">Agreement</string>
+
+    <!-- Dialog Messages -->
+    <string name="first_time_user_message">
+        I noticed this is your first login. Make sure to input your preferences in the Settings screen so we can find potential matches!
+    </string>
+
+    <!-- Intent and Bundle Extras -->
+    <string name="intent_new_camera_photo">intent_new_camera_photo</string>
+    <string name="intent_new_gallery_photo">intent_new_gallery_photo</string>
+    <string name="intent_user">intent_user</string>
+    <string name="intent_message">intent_message</string>
+
+    <!-- Spinner Options -->
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Do Not Identify</item>
+    </string-array>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_none">Do Not Identify</string>
+    <string name="gender_prompt">Choose your gender</string>
+
+    <string-array name="interested_in_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Anyone</item>
+    </string-array>
+    <string name="interested_in_male">Male</string>
+    <string name="interested_in_female">Female</string>
+    <string name="interested_in_anyone">Anyone</string>
+    <string name="interested_in_prompt">What are you looking for?</string>
+
+    <string-array name="relationship_status_array">
+        <item>Looking</item>
+        <item>Not Looking</item>
+    </string-array>
+    <string name="status_looking">Looking</string>
+    <string name="status_not_looking">Not Looking</string>
+    <string name="relationship_prompt">You you looking?</string>
+
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum.
+</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

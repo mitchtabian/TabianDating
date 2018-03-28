@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardMaxElevation="2dp"
+        card_view:cardElevation="1dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/card_view">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:id="@+id/profile_image"
+                android:src="@mipmap/ic_launcher"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mitch"
+                    android:id="@+id/name"
+
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Interested In:"
+                    android:id="@+id/text_interested_in"
+                    android:layout_below="@+id/name"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Females"
+                    android:id="@+id/interested_in"
+                    android:layout_below="@+id/name"
+                    android:layout_toRightOf="@+id/text_interested_in"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status:"
+                    android:id="@+id/text_status"
+                    android:layout_below="@+id/interested_in"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Single"
+                    android:id="@+id/status"
+                    android:layout_below="@+id/interested_in"
+                    android:layout_toRightOf="@+id/text_status"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp"/>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+</RelativeLayout>

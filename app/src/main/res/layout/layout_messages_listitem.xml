@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="@color/White"
+    android:id="@+id/parent_view">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/image"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/tabian_dating"
+        app:civ_border_color="@color/Black"
+        app:civ_border_width="0.5dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/grey_border_bottom"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mitch:"
+                android:id="@+id/name"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/Black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relLayout1"
+                android:layout_toRightOf="@+id/name"
+                android:layout_marginLeft="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="this is a message"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp"
+                    android:id="@+id/message"
+                    android:maxHeight="40dp"/>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reply"
+                android:textColor="@color/DarkGrey"
+                android:textSize="13sp"
+                android:id="@+id/reply"
+                android:layout_below="@+id/relLayout1"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

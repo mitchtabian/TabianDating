@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:id="@+id/toolbar">
+
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/back_arrow">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_back_arrow"
+                android:layout_centerVertical="true"
+                android:id="@+id/image_back_arrow"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/back_arrow"
+            android:gravity="center_vertical"
+            android:id="@+id/relLayoutTop">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/profile_image"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_heading"
+                android:textColor="@color/White"
+                android:layout_toRightOf="@+id/profile_image"
+                android:textSize="16sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:text="mitch"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="matrix"
+            android:alpha=".1"
+            android:id="@+id/background"/>
+
+    </RelativeLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/relLayout1">
+
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/grey_border_top"
+        android:id="@+id/relLayout1">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="send"
+            android:textSize="15sp"
+            android:id="@+id/post_message"
+            android:gravity="center"
+            android:background="@drawable/blue_onclick_grey"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/input_message"
+            android:background="@null"
+            android:layout_toLeftOf="@+id/post_message"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:hint="new message..."
+            android:textColor="@color/Black"
+            android:layout_marginLeft="5dp"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
