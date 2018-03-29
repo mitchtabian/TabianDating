@@ -211,36 +211,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
 
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
-//
-//        int backStackCount = mFragmentsTags.size();
-//        if(backStackCount > 1){
-//            String topFragmentTag = mFragmentsTags.get(backStackCount - 1);
-//
-//            String newTopFragmentTag = mFragmentsTags.get(backStackCount - 2);
-//            setFragmentVisibilities(newTopFragmentTag);
-//
-//            mFragmentsTags.remove(topFragmentTag);
-//
-//            mExitCount = 0;
-//        }
-//        else if( backStackCount == 1){
-//            String topFragmentTag = mFragmentsTags.get(backStackCount - 1);
-//            if(topFragmentTag.equals(getString(R.string.tag_fragment_home))){
-//                mHomeFragment.scrollToTop();
-//                mExitCount++;
-//                Toast.makeText(this, "1 more click to exit", Toast.LENGTH_SHORT).show();
-//            }
-//            else{
-//                mExitCount++;
-//                Toast.makeText(this, "1 more click to exit", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//
-//        if(mExitCount >= 2){
-//            super.onBackPressed();
-//        }
-//
+
 
         int backStackCount = mFragmentsTags.size();
         if(backStackCount > 1){
