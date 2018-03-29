@@ -7,21 +7,26 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:id="@+id/toolbar">
+        android:id="@+id/toolbar"
+        android:focusableInTouchMode="true"
+        android:nextFocusForward="@id/profile_image">
 
 
         <RelativeLayout
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:id="@+id/back_arrow">
+            android:id="@+id/back_arrow"
+            android:focusableInTouchMode="true"
+            android:nextFocusForward="@id/toolbar">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_back_arrow"
                 android:layout_centerVertical="true"
-                android:id="@+id/image_back_arrow"/>
-
+                android:id="@+id/image_back_arrow"
+                />
+            <requestFocus/>
         </RelativeLayout>
 
         <TextView
@@ -73,8 +78,10 @@
                     android:src="@drawable/ic_camera"
                     android:id="@+id/profile_image"
                     android:layout_centerInParent="true"
-                    />
+                    android:focusableInTouchMode="true">
 
+                    <requestFocus/>
+                </de.hdodenhof.circleimageview.CircleImageView>
 
             </RelativeLayout>
 
@@ -253,7 +260,8 @@
                         android:id="@+id/btn_save"
                         android:textColor="@color/White"
                         android:background="@drawable/blue_onclick_grey"
-                        android:layout_centerInParent="true"/>
+                        android:layout_centerInParent="true"
+                        />
 
                 </RelativeLayout>
 
