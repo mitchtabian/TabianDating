@@ -15,5 +15,5 @@ public interface IMainActivity {
 
     void onBackPressed();
 
-
+    void setBottomNavigationVisibility(boolean visibility);
 }

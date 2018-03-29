@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -37,7 +38,9 @@ public class MessagesFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     //vars
     private ArrayList<User> mUsers = new ArrayList<>();
-
+    private IMainActivity mIMainActivity;
+    static int mAppHeight;
+    static int currentOrientation = -1;
 
     @Nullable
     @Override
@@ -51,6 +54,7 @@ public class MessagesFragment extends Fragment implements SwipeRefreshLayout.OnR
         mSwipeRefreshLayout.setOnRefreshListener(this);
         getConnections();
         initSearchView();
+        setKeyboardVisibilityListener();
 
         return view;
     }
@@ -122,5 +126,70 @@ public class MessagesFragment extends Fragment implements SwipeRefreshLayout.OnR
         Log.d(TAG, "onDestroy: called.");
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mIMainActivity = (IMainActivity) getActivity();
+    }
+
+    public void setKeyboardVisibilityListener() {
+
+        final View contentView = getActivity().findViewById(android.R.id.content);
+
+        contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            private int mPreviousHeight;
+
+            @Override
+            public void onGlobalLayout() {
+
+                int newHeight = contentView.getHeight();
+
+                if (newHeight == mPreviousHeight)
+
+                    return;
+
+                mPreviousHeight = newHeight;
+
+                Log.d(TAG, "onGlobalLayout: new height: " + newHeight);
+                if (getActivity().getResources().getConfiguration().orientation != currentOrientation) {
+
+                    currentOrientation = getActivity().getResources().getConfiguration().orientation;
+
+                    mAppHeight =0;
+                    Log.d(TAG, "onGlobalLayout: current Orientation: " + currentOrientation);
+                    Log.d(TAG, "onGlobalLayout: app height: " + mAppHeight);
+                }
+
+                if (newHeight >= mAppHeight) {
+
+                    mAppHeight = newHeight;
+                    Log.d(TAG, "onGlobalLayout: app height: " + mAppHeight);
+                }
+                Log.d(TAG, "onGlobalLayout: -------------------------\n");
+
+                if (newHeight != 0) {
+                    MessagesFragment messagesFragment = (MessagesFragment) getActivity()
+                            .getSupportFragmentManager().findFragmentByTag(getActivity().getString(R.string.tag_fragment_messages));
+                    if(messagesFragment.isVisible()){
+                        if (mAppHeight > newHeight) {
+                            Log.d(TAG, "onGlobalLayout: hiding bottom nav");
+                            // Height decreased: keyboard was shown
+                            mIMainActivity.setBottomNavigationVisibility(false);
+
+                        }
+                        else {
+                            Log.d(TAG, "onGlobalLayout: showing bottom nav");
+                            // Height increased: keyboard was hidden
+                            mIMainActivity.setBottomNavigationVisibility(true);
+                        }
+                    }
+                }
+
+            }
+
+        });
+
+    }
 
 }
