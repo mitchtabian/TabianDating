@@ -61,6 +61,18 @@
     <string name="status_not_looking">Not Looking</string>
     <string name="relationship_prompt">You you looking?</string>
 
+    <!-- Message Suggestions -->
+    <string-array name="message_suggestions_array">
+        <item>Hey</item>
+        <item>How\'s it going?</item>
+        <item>Hello</item>
+        <item>What\'s up?</item>
+        <item>Want to chat?</item>
+        <item>What\'s new with you?</item>
+        <item>Have you seen my profile?</item>
+        <item>Want to meet up?</item>
+    </string-array>
+
 
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

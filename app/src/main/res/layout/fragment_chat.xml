@@ -103,7 +103,7 @@
             android:gravity="center"
             android:background="@drawable/blue_onclick_grey"/>
 
-        <EditText
+        <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/input_message"
@@ -113,7 +113,20 @@
             android:textSize="14sp"
             android:hint="new message..."
             android:textColor="@color/Black"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            />
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/input_message"-->
+            <!--android:background="@null"-->
+            <!--android:layout_toLeftOf="@+id/post_message"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:textSize="14sp"-->
+            <!--android:hint="new message..."-->
+            <!--android:textColor="@color/Black"-->
+            <!--android:layout_marginLeft="5dp"/>-->
 
 
     </RelativeLayout>

@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -36,7 +38,8 @@ public class ChatFragment extends Fragment implements View.OnClickListener{
     private TextView mFragmentHeading;
     private CircleImageView mProfileImage;
     private RelativeLayout mBackArrow;
-    private EditText mNewMessage;
+//    private EditText mNewMessage;
+    private AutoCompleteTextView mNewMessage;
     private TextView mSendMessage;
     private RelativeLayout mRelativeLayoutTop;
 
@@ -80,10 +83,17 @@ public class ChatFragment extends Fragment implements View.OnClickListener{
         initToolbar();
         initRecyclerView();
         setBackgroundImage(view);
+        setupAutoCompleteTextView();
 
         return view;
     }
 
+    private void setupAutoCompleteTextView(){
+        String[] messages = getResources().getStringArray(R.array.message_suggestions_array);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, messages);
+        mNewMessage.setAdapter(adapter);
+    }
 
     private void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: init recyclerview.");
