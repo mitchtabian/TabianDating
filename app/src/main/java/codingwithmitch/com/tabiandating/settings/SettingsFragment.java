@@ -17,9 +17,11 @@ import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +42,10 @@ import codingwithmitch.com.tabiandating.util.Resources;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class SettingsFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class SettingsFragment extends Fragment implements
+        View.OnClickListener,
+        AdapterView.OnItemSelectedListener,
+        TextView.OnEditorActionListener{
 
     private static final String TAG = "SettingsFragment";
 
@@ -109,6 +114,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         mProfileImage.setOnClickListener(this);
         mSave.setOnClickListener(this);
         mBackArrow.setOnClickListener(this);
+
+        mName.setOnEditorActionListener(this);
+
 
         checkPermissions();
         setBackgroundImage(view);
@@ -335,6 +343,14 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy: called.");
+    }
+
+    @Override
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        if(i == EditorInfo.IME_ACTION_DONE){
+            savePreferences();
+        }
+        return false;
     }
 }
 
