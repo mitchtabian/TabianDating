@@ -1,6 +1,8 @@
 package codingwithmitch.com.tabiandating;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -211,36 +213,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
 
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
-//
-//        int backStackCount = mFragmentsTags.size();
-//        if(backStackCount > 1){
-//            String topFragmentTag = mFragmentsTags.get(backStackCount - 1);
-//
-//            String newTopFragmentTag = mFragmentsTags.get(backStackCount - 2);
-//            setFragmentVisibilities(newTopFragmentTag);
-//
-//            mFragmentsTags.remove(topFragmentTag);
-//
-//            mExitCount = 0;
-//        }
-//        else if( backStackCount == 1){
-//            String topFragmentTag = mFragmentsTags.get(backStackCount - 1);
-//            if(topFragmentTag.equals(getString(R.string.tag_fragment_home))){
-//                mHomeFragment.scrollToTop();
-//                mExitCount++;
-//                Toast.makeText(this, "1 more click to exit", Toast.LENGTH_SHORT).show();
-//            }
-//            else{
-//                mExitCount++;
-//                Toast.makeText(this, "1 more click to exit", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//
-//        if(mExitCount >= 2){
-//            super.onBackPressed();
-//        }
-//
 
         int backStackCount = mFragmentsTags.size();
         if(backStackCount > 1){
@@ -261,6 +233,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
             super.onBackPressed();
         }
 
+        hideKeyboard();
     }
 
     private void setNavigationIcon(String tagname) {
@@ -312,7 +285,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
             }
         }
         setNavigationIcon(tagname);
-
         printBackStack();
     }
 
@@ -428,6 +400,22 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
             hideBottomNavigation();
     }
 
+    @Override
+    public void hideKeyboard() {
+        if(getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            try{
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
+        }
+    }
+// FOR MORE INFORMATION: https://stackoverflow.com/questions/1109022/close-hide-the-android-soft-keyboard
+//    public static void hideKeyboard(Context context, View view) {
+//        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+//        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+//    }
 
     private void printBackStack() {
         Log.d(TAG, "printBackStack: ----------------------------------- ");
