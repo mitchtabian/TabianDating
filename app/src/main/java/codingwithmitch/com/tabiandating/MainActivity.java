@@ -420,6 +420,14 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Bo
         setFragmentVisibilities(getString(R.string.tag_fragment_chat));
     }
 
+    @Override
+    public void setBottomNavigationVisibility(boolean visibility) {
+        if(visibility)
+            showBottomNavigation();
+        else
+            hideBottomNavigation();
+    }
+
 
     private void printBackStack() {
         Log.d(TAG, "printBackStack: ----------------------------------- ");
