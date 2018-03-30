@@ -9,7 +9,9 @@
         android:background="?attr/colorPrimary"
         android:id="@+id/toolbar"
         android:focusableInTouchMode="true"
-        android:nextFocusForward="@id/profile_image">
+        android:nextFocusForward="@id/profile_image"
+        android:nextFocusDown="@id/profile_image"
+        android:nextFocusUp="@id/back_arrow">
 
 
         <RelativeLayout
@@ -17,7 +19,9 @@
             android:layout_height="match_parent"
             android:id="@+id/back_arrow"
             android:focusableInTouchMode="true"
-            android:nextFocusForward="@id/toolbar">
+            android:nextFocusForward="@id/toolbar"
+            android:nextFocusDown="@id/toolbar"
+            >
 
             <ImageView
                 android:layout_width="20dp"
@@ -261,7 +265,7 @@
                         android:textColor="@color/White"
                         android:background="@drawable/blue_onclick_grey"
                         android:layout_centerInParent="true"
-                        />
+                        android:nextFocusDown="@id/back_arrow"/>
 
                 </RelativeLayout>
 
