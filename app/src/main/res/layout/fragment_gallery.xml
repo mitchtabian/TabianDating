@@ -1,17 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/relLayout1">
+        android:id="@+id/profileToolBar"
+        android:focusableInTouchMode="true"
+        android:nextFocusForward="@id/gridView"
+        android:nextFocusUp="@id/choose"
+        android:nextFocusDown="@id/gridView">
 
-        <!-- gallery toolbar -->
-        <include layout="@layout/layout_gallerytoolbar"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </RelativeLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/close"
+                android:src="@drawable/ic_black_x"
+                android:focusableInTouchMode="true"
+                android:nextFocusForward="@id/spinnerDirectory"
+                android:nextFocusDown="@id/spinnerDirectory">
+                <requestFocus/>
+            </ImageView>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/close"
+                android:id="@+id/spinnerDirectory"
+                android:textSize="20sp"
+                android:textColor="@color/Black"
+                android:text="Gallery"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:focusableInTouchMode="true"
+                android:nextFocusForward="@id/choose"
+                android:nextFocusDown="@id/choose"
+                android:nextFocusUp="@id/close">
+
+            </Spinner>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:textSize="20sp"
+                android:textColor="@color/linkBlue"
+                android:layout_centerVertical="true"
+                android:id="@+id/choose"
+                android:focusableInTouchMode="true"
+                android:nextFocusForward="@id/profileToolBar"
+                android:nextFocusDown="@id/profileToolBar"
+                android:nextFocusUp="@id/spinnerDirectory"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
 
 
     <LinearLayout
@@ -19,7 +72,8 @@
         android:layout_height="match_parent"
         android:weightSum="100"
         android:orientation="vertical"
-        android:layout_below="@id/relLayout1">
+        android:id="@+id/linLayout"
+        android:layout_below="@id/profileToolBar">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -46,9 +100,8 @@
             android:horizontalSpacing="1.5dp"
             android:stretchMode="none"
             android:gravity="center"
-            android:layout_marginTop="1dp">
-
-
+            android:layout_marginTop="1dp"
+            android:focusableInTouchMode="true">
 
         </GridView>
 
