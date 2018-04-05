@@ -14,7 +14,9 @@
         <RelativeLayout
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:id="@+id/back_arrow">
+            android:id="@+id/back_arrow"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground">
 
             <ImageView
                 android:layout_width="20dp"
@@ -101,7 +103,8 @@
             android:textSize="15sp"
             android:id="@+id/post_message"
             android:gravity="center"
-            android:background="@drawable/blue_onclick_grey"/>
+            android:background="@drawable/blue_onclick_grey"
+            android:focusable="true"/>
 
         <AutoCompleteTextView
             android:layout_width="match_parent"
