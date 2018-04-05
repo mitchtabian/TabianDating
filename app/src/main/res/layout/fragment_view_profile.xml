@@ -14,7 +14,9 @@
         <RelativeLayout
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:id="@+id/back_arrow">
+            android:id="@+id/back_arrow"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground">
 
             <ImageView
                 android:layout_width="20dp"
@@ -76,7 +78,9 @@
                     app:icon_type="heart"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true">
+                    android:layout_alignParentRight="true"
+                    android:focusable="true"
+                    android:background="?android:attr/selectableItemBackground">
 
                 </com.like.LikeButton>
 
