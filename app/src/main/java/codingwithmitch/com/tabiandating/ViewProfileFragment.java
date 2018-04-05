@@ -163,6 +163,23 @@ public class ViewProfileFragment extends Fragment implements OnLikeListener, Vie
         super.onAttach(context);
         mInterface = (IMainActivity) getActivity();
     }
+
+    public void moveFocusForward(){
+        try{
+            if(getActivity().getCurrentFocus().getId() == R.id.back_arrow){
+                Log.d(TAG, "moveFocusForward: setting focus to heart button");
+                mLikeButton.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.heart_button){
+                Log.d(TAG, "moveFocusForward: setting focus to back arrow");
+                mBackArrow.getParent().requestChildFocus(mBackArrow, mBackArrow);
+                mBackArrow.requestFocus();
+            }
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+
+    }
 }
 
 

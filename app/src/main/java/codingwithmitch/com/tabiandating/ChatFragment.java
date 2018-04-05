@@ -167,6 +167,37 @@ public class ChatFragment extends Fragment implements View.OnClickListener{
         mInterface = (IMainActivity) getActivity();
     }
 
+    public void moveFocusForward(){
+        try{
+            if(getActivity().getCurrentFocus().getId() == R.id.back_arrow){
+                Log.d(TAG, "moveFocusForward: setting focus to top relative layout");
+                mRelativeLayoutTop.getParent().requestChildFocus(mRelativeLayoutTop, mRelativeLayoutTop);
+                mRelativeLayoutTop.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.relLayoutTop){
+                Log.d(TAG, "moveFocusForward: setting focus to message input field");
+                mNewMessage.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.input_message){
+                Log.d(TAG, "moveFocusForward: setting focus to send button");
+                mSendMessage.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.post_message){
+                Log.d(TAG, "moveFocusForward: setting focus to back arrow");
+                mBackArrow.getParent().requestChildFocus(mBackArrow, mBackArrow);
+                mBackArrow.requestFocus();
+            }
+            else{
+                Log.d(TAG, "moveFocusForward: setting focus to back arrow");
+                mBackArrow.getParent().requestChildFocus(mBackArrow, mBackArrow);
+                mBackArrow.requestFocus();
+            }
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }
 
 

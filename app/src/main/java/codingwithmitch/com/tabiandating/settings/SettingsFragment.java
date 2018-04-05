@@ -352,6 +352,52 @@ public class SettingsFragment extends Fragment implements
         }
         return false;
     }
+
+    public void moveFocusForward(){
+        try{
+            if(getActivity().getCurrentFocus().getId() == R.id.back_arrow){
+                Log.d(TAG, "moveFocusForward: setting focus to profile image");
+                mProfileImage.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.profile_image){
+                Log.d(TAG, "moveFocusForward: setting focus to name field");
+                mName.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.name){
+                Log.d(TAG, "moveFocusForward: setting focus to email field");
+                mEmail.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.email){
+                Log.d(TAG, "moveFocusForward: setting focus to phone field");
+                mPhoneNumber.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.phone_number){
+                Log.d(TAG, "moveFocusForward: setting focus to gender field");
+                mGenderSpinner.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.gender_spinner){
+                Log.d(TAG, "moveFocusForward: setting focus to interested in field");
+                mInterestedInSpinner.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.interested_in_spinner){
+                Log.d(TAG, "moveFocusForward: setting focus to status field");
+                mStatusSpinner.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.relationship_status_spinner){
+                Log.d(TAG, "moveFocusForward: setting focus to save button");
+                mSave.requestFocus();
+            }
+            else if(getActivity().getCurrentFocus().getId() == R.id.btn_save){
+                Log.d(TAG, "moveFocusForward: setting focus to back arrow");
+                mBackArrow.getParent().requestChildFocus(mBackArrow, mBackArrow);
+                mBackArrow.requestFocus();
+            }
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }
 
 
