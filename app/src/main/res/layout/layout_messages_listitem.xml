@@ -4,7 +4,8 @@
                 android:layout_height="wrap_content"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="@color/White"
-    android:id="@+id/parent_view">
+    android:id="@+id/parent_view"
+                android:focusable="true">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="35dp"
@@ -21,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/image"
         android:layout_marginTop="15dp"
-        android:background="@drawable/grey_border_bottom"
         >
 
 

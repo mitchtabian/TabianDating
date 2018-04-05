@@ -14,7 +14,8 @@
         card_view:cardMaxElevation="2dp"
         card_view:cardElevation="1dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/card_view">
+        android:id="@+id/card_view"
+        android:focusable="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
