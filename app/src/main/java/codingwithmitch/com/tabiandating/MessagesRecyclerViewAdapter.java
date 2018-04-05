@@ -1,6 +1,7 @@
 package codingwithmitch.com.tabiandating;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -80,6 +81,18 @@ public class MessagesRecyclerViewAdapter extends RecyclerView.Adapter<MessagesRe
                 Log.d(TAG, "onClick: clicked on: " + user.getName());
 
                 mInterface.onMessageSelected(new Message(user, Messages.MESSAGES[position]));
+            }
+        });
+
+        holder.parent.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(view.hasFocus()){
+                    holder.parent.setBackgroundColor(mContext.getResources().getColor(R.color.lightGrey));
+                }
+                else{
+                    holder.parent.setBackgroundColor(Color.WHITE);
+                }
             }
         });
     }

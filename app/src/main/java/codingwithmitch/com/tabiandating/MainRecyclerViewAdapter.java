@@ -1,6 +1,7 @@
 package codingwithmitch.com.tabiandating;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -62,6 +63,18 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
                 Log.d(TAG, "onClick: clicked on: " + mUsers.get(position).getName());
 
                 mInterface.inflateViewProfileFragment(mUsers.get(position));
+            }
+        });
+
+        holder.cardView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(view.hasFocus()){
+                    holder.cardView.setCardBackgroundColor(mContext.getResources().getColor(R.color.lightGrey));
+                }
+                else{
+                    holder.cardView.setCardBackgroundColor(Color.WHITE);
+                }
             }
         });
     }

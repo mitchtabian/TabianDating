@@ -45,7 +45,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SettingsFragment extends Fragment implements
         View.OnClickListener,
         AdapterView.OnItemSelectedListener,
-        TextView.OnEditorActionListener{
+        TextView.OnEditorActionListener,
+        View.OnFocusChangeListener{
 
     private static final String TAG = "SettingsFragment";
 
@@ -194,6 +195,11 @@ public class SettingsFragment extends Fragment implements
         mGenderSpinner.setOnItemSelectedListener(this);
         mInterestedInSpinner.setOnItemSelectedListener(this);
         mStatusSpinner.setOnItemSelectedListener(this);
+
+        mGenderSpinner.setOnFocusChangeListener(this);
+        mInterestedInSpinner.setOnFocusChangeListener(this);
+        mStatusSpinner.setOnFocusChangeListener(this);
+
     }
 
     @Override
@@ -398,7 +404,36 @@ public class SettingsFragment extends Fragment implements
 
     }
 
+    @Override
+    public void onFocusChange(View view, boolean b) {
+        switch(view.getId()){
+
+            case R.id.gender_spinner:{
+                mInterface.hideKeyboard();
+                break;
+            }
+
+            case R.id.interested_in_spinner:{
+                mInterface.hideKeyboard();
+                break;
+            }
+
+            case R.id.relationship_status_spinner:{
+                mInterface.hideKeyboard();
+                break;
+            }
+
+        }
+
+    }
 }
+
+
+
+
+
+
+
 
 
 
