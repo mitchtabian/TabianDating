@@ -16,12 +16,19 @@
             android:layout_above="@+id/relLayout2">
 
 
-            <android.support.v4.view.ViewPager
+            <codingwithmitch.com.tabiandating.settings.MyViewPager
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/viewpager_container">
 
-            </android.support.v4.view.ViewPager>
+            </codingwithmitch.com.tabiandating.settings.MyViewPager>
+
+            <!--<android.support.v4.view.ViewPager-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/viewpager_container">-->
+
+            <!--</android.support.v4.view.ViewPager>-->
 
 
         </RelativeLayout>
