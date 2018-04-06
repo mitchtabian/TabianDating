@@ -30,26 +30,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/relLayout2"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:focusableInTouchMode="false"
+            android:focusable="false">
 
-            <android.support.design.widget.AppBarLayout
+
+            <android.support.design.widget.TabLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/tabs_bottom"
+                android:background="#fff">
 
-
-                <android.support.design.widget.TabLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:id="@+id/tabs_bottom"
-                    android:background="#fff">
-
-                </android.support.design.widget.TabLayout>
-
-            </android.support.design.widget.AppBarLayout>
+            </android.support.design.widget.TabLayout>
 
 
         </RelativeLayout>
-
 
 
     </RelativeLayout>
