@@ -451,10 +451,28 @@ public class MainActivity extends AppCompatActivity implements
                 }
                 return false;
 
+            case KeyEvent.KEYCODE_R:
+                if(event.isCtrlPressed()){
+                    refresh();
+                }
+                return false;
+
             default:
                 return super.onKeyUp(keyCode, event);
         }
 
+    }
+
+    private void refresh(){
+        if(mHomeFragment != null){
+            mHomeFragment.onRefresh();
+        }
+        if(mSavedConnectionsFragment != null){
+            mSavedConnectionsFragment.onRefresh();
+        }
+        if(mMessagesFragment != null){
+            mMessagesFragment.onRefresh();
+        }
     }
 
     private void toggleNavigationDrawer(){
