@@ -174,6 +174,7 @@ public class MainActivity extends AppCompatActivity implements
     private BottomNavigationViewEx mBottomNavigationViewEx;
     private ImageView mHeaderImage;
     private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView;
 
     //vars
     private ArrayList<String> mFragmentsTags = new ArrayList<>();
@@ -185,8 +186,8 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mBottomNavigationViewEx = findViewById(R.id.bottom_nav_view);
-        NavigationView navigationView = findViewById(R.id.navigation_view);
-        View headerView = navigationView.getHeaderView(0);
+        mNavigationView = findViewById(R.id.navigation_view);
+        View headerView = mNavigationView.getHeaderView(0);
         mHeaderImage = headerView.findViewById(R.id.header_image);
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
@@ -438,6 +439,34 @@ public class MainActivity extends AppCompatActivity implements
             }
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_TAB:
+                if(event.isCtrlPressed()){
+                    toggleNavigationDrawer();
+                }
+                return false;
+
+            default:
+                return super.onKeyUp(keyCode, event);
+        }
+
+    }
+
+    private void toggleNavigationDrawer(){
+        if(mDrawerLayout != null){
+            if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+            }
+            else{
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                mNavigationView.requestFocus();
+            }
+        }
     }
 
     private boolean isChildFragmentVisible(){
