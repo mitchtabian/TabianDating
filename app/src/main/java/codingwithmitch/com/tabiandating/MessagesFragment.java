@@ -34,7 +34,7 @@ public class MessagesFragment extends Fragment implements SwipeRefreshLayout.OnR
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private MessagesRecyclerViewAdapter mRecyclerViewAdapter;
     private RecyclerView mRecyclerView;
-    private SearchView mSearchView;
+    public SearchView mSearchView;
 
     //vars
     private ArrayList<User> mUsers = new ArrayList<>();

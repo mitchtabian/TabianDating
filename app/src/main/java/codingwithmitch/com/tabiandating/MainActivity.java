@@ -458,6 +458,12 @@ public class MainActivity extends AppCompatActivity implements
                     }
                     return false;
 
+                case KeyEvent.KEYCODE_S:
+                    if(event.isCtrlPressed()){
+                        focusSearchView();
+                    }
+                    return false;
+
                 default:
                     return super.onKeyUp(keyCode, event);
             }
@@ -470,6 +476,15 @@ public class MainActivity extends AppCompatActivity implements
 
                 default:
                     return super.onKeyUp(keyCode, event);
+            }
+        }
+    }
+
+    private void focusSearchView(){
+        if(mMessagesFragment != null){
+            if(mMessagesFragment.isVisible()){
+                Log.d(TAG, "focusSearchView: focusing SearchView.");
+                mMessagesFragment.mSearchView.requestFocusFromTouch();
             }
         }
     }
