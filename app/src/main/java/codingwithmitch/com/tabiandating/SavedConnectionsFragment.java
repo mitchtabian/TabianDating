@@ -66,9 +66,8 @@ public class SavedConnectionsFragment extends Fragment implements SwipeRefreshLa
                 mUsers.add(user);
             }
         }
-        if(mRecyclerViewAdapter == null){
-            initRecyclerView();
-        }
+
+        initRecyclerView();
     }
 
     private void initRecyclerView(){

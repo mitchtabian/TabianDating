@@ -97,9 +97,8 @@ public class MessagesFragment extends Fragment implements SwipeRefreshLayout.OnR
                 mUsers.add(user);
             }
         }
-        if(mRecyclerViewAdapter == null){
-            initRecyclerView();
-        }
+
+        initRecyclerView();
     }
 
     private void initRecyclerView(){
