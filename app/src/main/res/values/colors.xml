@@ -15,9 +15,10 @@
     <color name="blue4">#00aab1</color>
     <color name="blue5">#007f85</color>
     <color name="White">#fff</color>
-    <color name="darkGrey">#a6a6a6 </color>
-    <color name="Grey">#c3c3c3 </color>
-    <color name="lightGrey">#f2f2f2 </color>
-    <color name="DarkGrey">#737373 </color>
-    <color name="Black">#000 </color>
+    <color name="darkGrey">#a6a6a6</color>
+    <color name="Grey">#c3c3c3</color>
+    <color name="lightGrey">#f2f2f2</color>
+    <color name="transparentGrey">#5f000000</color>
+    <color name="DarkGrey">#737373</color>
+    <color name="Black">#000</color>
 </resources>
