@@ -88,6 +88,18 @@ public class ChatFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
+    public void postMessage(){
+        Log.d(TAG, "onClick: posting new message.");
+        String message = mNewMessage.getText().toString();
+        if(("" + message.charAt(message.length() - 1)).equals(System.getProperty("line.separator"))){
+            message = message.substring(0, message.length() - 2);
+        }
+        mMessages.add(new Message(mCurrentUser, message));
+        mChatRecyclerViewAdapter.notifyDataSetChanged();
+        mNewMessage.setText("");
+        mRecyclerView.smoothScrollToPosition(mMessages.size() - 1);
+    }
+
     private void setupAutoCompleteTextView(){
         String[] messages = getResources().getStringArray(R.array.message_suggestions_array);
         ArrayAdapter<String> adapter =

@@ -444,23 +444,42 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
 
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_TAB:
-                if(event.isCtrlPressed()){
-                    toggleNavigationDrawer();
-                }
-                return false;
+        if(!event.isShiftPressed()){
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_TAB:
+                    if(event.isCtrlPressed()){
+                        toggleNavigationDrawer();
+                    }
+                    return false;
 
-            case KeyEvent.KEYCODE_R:
-                if(event.isCtrlPressed()){
-                    refresh();
-                }
-                return false;
+                case KeyEvent.KEYCODE_R:
+                    if(event.isCtrlPressed()){
+                        refresh();
+                    }
+                    return false;
 
-            default:
-                return super.onKeyUp(keyCode, event);
+                default:
+                    return super.onKeyUp(keyCode, event);
+            }
         }
+        else{
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_ENTER:
+                    sendChatMessage();
+                    return false;
 
+                default:
+                    return super.onKeyUp(keyCode, event);
+            }
+        }
+    }
+
+    private void sendChatMessage(){
+        if(mChatFragment != null){
+            if(mChatFragment.isVisible()){
+                mChatFragment.postMessage();
+            }
+        }
     }
 
     private void refresh(){
