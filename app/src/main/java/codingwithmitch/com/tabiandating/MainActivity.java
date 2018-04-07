@@ -464,6 +464,18 @@ public class MainActivity extends AppCompatActivity implements
                     }
                     return false;
 
+                case KeyEvent.KEYCODE_DPAD_LEFT:
+                    if(event.isCtrlPressed()){
+                        shiftLeft();
+                    }
+                    return super.onKeyUp(keyCode, event);
+
+                case KeyEvent.KEYCODE_DPAD_RIGHT:
+                    if(event.isCtrlPressed()){
+                        shiftRight();
+                    }
+                    return super.onKeyUp(keyCode, event);
+
                 default:
                     return super.onKeyUp(keyCode, event);
             }
@@ -476,6 +488,47 @@ public class MainActivity extends AppCompatActivity implements
 
                 default:
                     return super.onKeyUp(keyCode, event);
+            }
+        }
+    }
+
+    private boolean isBottomNavigationVisible(){
+        if(mHomeFragment != null){
+            if(mHomeFragment.isVisible()){
+                return true;
+            }
+        }
+        if(mSavedConnectionsFragment != null){
+            if(mSavedConnectionsFragment.isVisible()){
+                return true;
+            }
+        }
+        if(mMessagesFragment!= null){
+            if(mMessagesFragment.isVisible()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void shiftRight(){
+        if(isBottomNavigationVisible()){
+            if(mBottomNavigationViewEx.getCurrentItem() == 0){
+                mBottomNavigationViewEx.setCurrentItem(1);
+            }
+            else if(mBottomNavigationViewEx.getCurrentItem() == 1){
+                mBottomNavigationViewEx.setCurrentItem(2);
+            }
+        }
+    }
+
+    private void shiftLeft(){
+        if(isBottomNavigationVisible()){
+            if(mBottomNavigationViewEx.getCurrentItem() == 1){
+                mBottomNavigationViewEx.setCurrentItem(0);
+            }
+            else if(mBottomNavigationViewEx.getCurrentItem() == 2){
+                mBottomNavigationViewEx.setCurrentItem(1);
             }
         }
     }
