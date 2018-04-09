@@ -92,7 +92,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener{
         Log.d(TAG, "onClick: posting new message.");
         String message = mNewMessage.getText().toString();
         if(("" + message.charAt(message.length() - 1)).equals(System.getProperty("line.separator"))){
-            message = message.substring(0, message.length() - 2);
+            message = message.substring(0, message.length() - 1);
         }
         mMessages.add(new Message(mCurrentUser, message));
         mChatRecyclerViewAdapter.notifyDataSetChanged();
